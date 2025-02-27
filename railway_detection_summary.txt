@@ -1,0 +1,10 @@
+Railway Track Object Detection Report
+Total Detections: 150
+Unique Objects Spotted: 5
+
+Breakdown:
+Pole: 50
+Sign: 40
+Fence: 20
+Stone: 15
+Object: 25
