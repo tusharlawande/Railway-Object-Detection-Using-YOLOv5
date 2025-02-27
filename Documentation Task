@@ -1,0 +1,130 @@
+# Railway Object Detection Using YOLOv5
+
+## Overview
+This project utilizes **YOLOv5** to detect railway-related objects from a video. The model processes frames from a given railway track video, identifies predefined railway objects, and generates detection reports in CSV and text formats.
+
+## Features
+- Detects railway infrastructure elements such as **poles, signs, fences, stones, and drains**.
+- Uses **YOLOv5** for object detection.
+- Saves detailed detection results to a CSV file.
+- Generates a summary report of detected objects.
+- Processes video frame-by-frame for real-time insights.
+
+## Prerequisites
+Ensure you have the following installed:
+- **Python 3.x**
+- **PyTorch**
+- **OpenCV**
+- **Pandas**
+
+### Install Required Dependencies
+```bash
+pip install torch torchvision opencv-python pandas
+```
+
+## Setup & Execution
+
+### 1. Download YOLOv5 Model
+The script loads the YOLOv5 model directly from the **Ultralytics** repository.
+```python
+model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
+```
+
+### 2. Define Input Video Path
+Set the correct path for the video file in the script:
+```python
+video_path = "railway_track_video.mp4"  # Update this path if needed
+```
+
+### 3. Run the Script
+Execute the script using:
+```bash
+python railway_object_detection.py
+```
+
+### 4. Output Files
+- **`railway_detections.csv`** – Detailed list of detected objects.
+- **`railway_detection_summary.txt`** – Summary report with counts of each detected object.
+
+## How It Works
+1. **Reads the input video** and extracts frame-by-frame.
+2. **Resizes the frame** and converts it to RGB for YOLOv5 compatibility.
+3. **Passes the frame to YOLOv5**, which detects objects.
+4. **Filters detections** based on predefined railway-related objects.
+5. **Saves the results** with object type, confidence score, and bounding box coordinates.
+6. **Generates a summary report** showing total detections and counts of each object type.
+
+## Detected Objects
+This project detects the following railway-related objects:
+- **Poles**: OHE-Pole, Traffic Signal Pole, Sign Pole, Gradient Post
+- **Signs**: Termination Indicator, Tractive Effort, Curve Cutting Warning
+- **Infrastructure**: Fence, Height Gauge, Silver Box, Catch Water Drain
+- **Landmarks**: Chainage Pole, K.M. Stone, Land Boundary Stone
+
+## Sample Output
+### **railway_detections.csv** (Example Data)
+| frame | timestamp_sec | object      | confidence | x    | y    | width | height |
+|-------|--------------|------------|------------|------|------|-------|--------|
+| 1     | 0.03         | OHE-Pole   | 0.85       | 150  | 120  | 50    | 100    |
+| 2     | 0.07         | Sign Board | 0.90       | 200  | 180  | 60    | 110    |
+
+### **railway_detection_summary.txt** (Example Output)
+```
+Railway Track Object Detection Report
+Total Detections: 150
+Unique Objects Spotted: 5
+
+Breakdown:
+Pole: 50
+Sign: 40
+Fence: 20
+Stone: 15
+Object: 25
+```
+
+## Future Enhancements
+- Improve accuracy by training a custom YOLO model with railway-specific datasets.
+- Optimize the script to run faster on large videos.
+- Implement real-time processing with a webcam or live feed.
+
+## License
+This project is for educational and research purposes.
+
+---
+
+## Interview Details
+
+**Company Name:** Mounarch Tech Solutions & Systems Pvt Ltd.  
+**Website:** [www.mounarchtech.com](http://www.mounarchtech.com)  
+**Role:** Python Developer  
+**Job Location:** Cybernex IT Park, 2nd Floor, Shankar Sheth Road, Swargate, Pune  
+
+### **Job Description**
+We are looking for a skilled Python Developer with expertise in **Machine Learning, Image Processing, and Data Analysis** to join our team. The ideal candidate will develop and deploy AI-driven solutions, analyze large datasets, and work on advanced image processing projects.
+
+### **Key Responsibilities:**
+- Build and train machine learning models for predictive analytics and automation.
+- Design and implement image processing algorithms for feature extraction and pattern recognition.
+- Perform data analysis to uncover insights and support decision-making.
+- Work with libraries like OpenCV, TensorFlow, PyTorch, and Scikit-learn.
+- Collaborate with cross-functional teams to integrate solutions into applications.
+
+### **Requirements:**
+- Proficiency in Python and its libraries for ML and image processing.
+- Experience with tools like Pandas, NumPy, OpenCV, and Matplotlib.
+- Knowledge of deep learning frameworks such as TensorFlow or PyTorch.
+- Familiarity with data visualization and exploratory data analysis (EDA).
+- Understanding of computer vision concepts and algorithms.
+
+This role is perfect for someone passionate about applying cutting-edge technologies to solve complex problems in data analysis and image processing.
+
+## **Task Links:**
+📌 [Google Drive Task 1](https://drive.google.com/drive/folders/1z3lTWMP3EvKBsqWSVcNAzFH2ZlCevPOI?usp=sharing)  
+📌 [Google Drive Task 2](https://drive.google.com/drive/folders/1-9QA07fm6CLS_GgYKBt6Lfb2k7U-qoB1?usp=sharing)  
+📌 [Google Drive File](https://drive.google.com/file/d/1gEK9cOedEcpd67TfqvSArPsCrsFncN-k/view?usp=sharing)  
+
+---
+### **Author:**
+Tushar Lawande  
+MCA (Hons. AIML) | Data Science & Machine Learning Enthusiast
+
