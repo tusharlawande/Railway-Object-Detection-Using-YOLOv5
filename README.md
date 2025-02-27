@@ -60,7 +60,7 @@ Ensures the video exists, processes it, and calls the detection functions.
 python railway_object_detection.py
 ```
 
-## Example Output
+## Output
 
 ### `railway_detections.csv`
 
